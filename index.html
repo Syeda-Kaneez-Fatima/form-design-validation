@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project 4 - Form Design & Validation | DecodeLabs</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- External CSS file link -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="form-card">
+
+    <!-- HEADER -->
+    <div class="form-header">
+      <div class="badge">DecodeLabs · Project 4</div>
+      <h1>Create Your Account</h1>
+      <p>Fill in the details below to get started</p>
+    </div>
+
+    <!-- FORM -->
+    <div id="regForm">
+
+      <!-- NAME + PHONE (2 columns) -->
+      <div class="row-two">
+
+        <div class="form-group">
+          <label for="fullName">Full Name <span class="req">*</span></label>
+          <input type="text" id="fullName" placeholder="e.g. Fatima Khan" oninput="validateName()" />
+          <span class="msg error-msg" id="nameError">Name must be at least 3 characters.</span>
+          <span class="msg success-msg" id="nameSuccess">Looks good!</span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone <span class="req">*</span></label>
+          <input type="tel" id="phone" placeholder="03XX-XXXXXXX" oninput="validatePhone()" maxlength="11" />
+          <span class="msg error-msg" id="phoneError">Enter a valid 11-digit number.</span>
+          <span class="msg success-msg" id="phoneSuccess">Valid number!</span>
+        </div>
+
+      </div>
+
+      <!-- EMAIL -->
+      <div class="form-group">
+        <label for="email">Email Address <span class="req">*</span></label>
+        <input type="email" id="email" placeholder="you@example.com" oninput="validateEmail()" />
+        <span class="msg error-msg" id="emailError">Enter a valid email address.</span>
+        <span class="msg success-msg" id="emailSuccess">Valid email!</span>
+      </div>
+
+      <!-- DROPDOWN -->
+      <div class="form-group">
+        <label for="field">Field of Interest <span class="req">*</span></label>
+        <select id="field" onchange="validateField()">
+          <option value="">-- Select a field --</option>
+          <option value="frontend">Frontend Development</option>
+          <option value="backend">Backend Development</option>
+          <option value="fullstack">Full Stack Development</option>
+          <option value="ui">UI/UX Design</option>
+          <option value="ai">Artificial Intelligence</option>
+        </select>
+        <span class="msg error-msg" id="fieldError">Please select a field.</span>
+        <span class="msg success-msg" id="fieldSuccess">Great choice!</span>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="form-group">
+        <label for="password">Password <span class="req">*</span></label>
+        <input type="password" id="password" placeholder="Min. 8 characters" oninput="validatePassword()" />
+        <span class="msg error-msg" id="passError">Password must be at least 8 characters with 1 number.</span>
+        <span class="msg success-msg" id="passSuccess">Strong password!</span>
+        <div class="strength-bar-wrapper" id="strengthWrapper">
+          <div class="strength-bar">
+            <div class="strength-fill" id="strengthFill"></div>
+          </div>
+          <div class="strength-label" id="strengthLabel"></div>
+        </div>
+      </div>
+
+      <!-- CONFIRM PASSWORD -->
+      <div class="form-group">
+        <label for="confirmPass">Confirm Password <span class="req">*</span></label>
+        <input type="password" id="confirmPass" placeholder="Re-enter password" oninput="validateConfirmPass()" />
+        <span class="msg error-msg" id="confirmError">Passwords do not match.</span>
+        <span class="msg success-msg" id="confirmSuccess">Passwords match!</span>
+      </div>
+
+      <!-- BIO -->
+      <div class="form-group">
+        <label for="bio">Short Bio <span class="req">*</span></label>
+        <textarea id="bio" placeholder="Tell us a little about yourself..." oninput="validateBio()"></textarea>
+        <span class="msg error-msg" id="bioError">Bio must be at least 20 characters.</span>
+        <span class="msg success-msg" id="bioSuccess">Thanks for sharing!</span>
+      </div>
+
+      <!-- TERMS CHECKBOX -->
+      <div class="checkbox-group">
+        <input type="checkbox" id="terms" onchange="validateTerms()" />
+        <label for="terms">
+          I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+        </label>
+      </div>
+      <div class="checkbox-error" id="termsError">You must accept the terms to continue.</div>
+
+      <!-- SUBMIT BUTTON -->
+      <button class="submit-btn" onclick="submitForm()">🚀 Submit Registration</button>
+
+    </div>
+    <!-- FORM END -->
+
+    <!-- SUCCESS BANNER -->
+    <div class="success-banner" id="successBanner">
+      <div class="checkmark">✅</div>
+      <h3>Registration Successful!</h3>
+      <p>Welcome aboard! Your account has been created successfully.</p>
+    </div>
+
+  </div>
+
+  <!-- External JS file link — body ke end mein rakho -->
+  <script src="script.js"></script>
+
+</body>
+</html>
